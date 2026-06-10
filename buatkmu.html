@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surat Untuk Kamu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    font-family:'Poppins',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    overflow-x:hidden;
+}
+
+.container{
+    width:100%;
+    max-width:850px;
+}
+
+.letter{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:30px;
+    padding:50px;
+    color:white;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.photo{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    margin:auto;
+    border:4px solid rgba(255,255,255,.2);
+}
+
+.title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-top:20px;
+}
+
+.subtitle{
+    text-align:center;
+    opacity:.7;
+    margin-bottom:30px;
+}
+
+.days{
+    text-align:center;
+    color:#fda4af;
+    margin-bottom:30px;
+    font-size:1.1rem;
+}
+
+.content{
+    line-height:2;
+    font-size:1.05rem;
+    color:#f8fafc;
+}
+
+.signature{
+    margin-top:40px;
+    text-align:right;
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+}
+
+.btn{
+    display:block;
+    margin:35px auto 0;
+    border:none;
+    background:#fb7185;
+    color:white;
+    padding:14px 28px;
+    border-radius:50px;
+    cursor:pointer;
+}
+
+.secret{
+    display:none;
+    margin-top:30px;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    text-align:center;
+    line-height:1.8;
+}
+
+.heart{
+    position:fixed;
+    color:#fb7185;
+    pointer-events:none;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+@media(max-width:768px){
+
+.letter{
+    padding:30px;
+}
+
+.title{
+    font-size:2.3rem;
+}
+
+.content{
+    font-size:.95rem;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="letter">
+
+<img src="foto-kita.jpg" class="photo" alt="Foto">
+
+<h1 class="title">Untuk Kamu ❤️</h1>
+
+<p class="subtitle">
+Surat kecil dari seseorang yang selalu memikirkanmu
+</p>
+
+<div class="days" id="hariBersama"></div>
+
+<div class="content">
+
+<p>
+Sayang,
+</p>
+
+<p>
+Aku hanya ingin mengucapkan terima kasih karena telah hadir dalam hidupku.
+Terima kasih untuk setiap tawa, perhatian, kesabaran, dan semua hal kecil yang mungkin tidak kamu sadari, tetapi sangat berarti untukku.
+</p>
+
+<p>
+Dunia tidak selalu berjalan sesuai yang kita inginkan, tetapi kehadiranmu membuat semuanya terasa lebih ringan. Ada banyak hal yang belum bisa aku ungkapkan dengan sempurna, namun satu hal yang selalu pasti:
+aku bahagia karena memilikimu dalam hidupku.
+</p>
+
+<p>
+Jika suatu hari nanti aku lupa bagaimana caranya tersenyum, aku tahu cukup melihatmu dan aku akan mengingatnya kembali.
+</p>
+
+<p>
+Aku tidak berjanji menjadi orang yang sempurna, tetapi aku berjanji akan selalu berusaha mencintaimu dengan tulus, menghargaimu, dan menemanimu selama aku mampu.
+</p>
+
+</div>
+
+<button class="btn" onclick="showSecret()">
+💌 Buka Pesan Rahasia
+</button>
+
+<div class="secret" id="secret">
+
+<h2>❤️ Untuk Selamanya ❤️</h2>
+
+<p>
+Di antara semua cerita yang pernah terjadi dalam hidupku,
+kamu adalah bagian favorit yang tidak pernah ingin aku akhiri.
+
+Aku sayang kamu hari ini,
+besok,
+dan setiap hari setelahnya.
+</p>
+
+</div>
+
+<div class="signature">
+Dengan cinta,<br>
+[Nama Kamu]
+</div>
+
+</div>
+
+</div>
+
+<!-- Musik -->
+<audio autoplay loop controls style="display:none">
+    <source src="lagu tiktok.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// GANTI TANGGAL JADIAN
+const startDate = new Date("2024-01-01");
+
+function updateDays(){
+    const now = new Date();
+    const diff = now - startDate;
+    const days = Math.floor(diff / (1000*60*60*24));
+
+    document.getElementById("hariBersama").innerHTML =
+    "💕 Bersama selama " + days + " hari";
+}
+
+updateDays();
+
+function showSecret(){
+    document.getElementById("secret").style.display = "block";
+}
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*20+15) + "px";
+    heart.style.animationDuration = (Math.random()*4+4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
